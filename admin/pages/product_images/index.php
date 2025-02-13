@@ -1,7 +1,7 @@
 <?php
 include('../../includes/header.php');
 
-$query = "SELECT * from product_images";
+$query = "SELECT product_images.* , products.name as p_name from product_images join products on product_images.prod_id = products.id";
 
 $result = mysqli_query($conn,$query);
 
@@ -47,7 +47,7 @@ $result = mysqli_query($conn,$query);
             {
           ?>
             <tr>
-                <td><?php echo $row['prod_id']?></td>
+                <td><?php echo $row['p_name']?></td>
                 <td><img src="../../assets/images/<?php echo $row['images']?>" alt="user 1" class="img-fluid rounded" style=""></td>
                 <td>
                 <a href="edit.php?id=<?php echo $row['id']?>" class="w-32-px h-32-px bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center">

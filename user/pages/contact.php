@@ -140,19 +140,19 @@ if (isset($_POST['submit'])) {
                         <div class="wpo-contact-form-area">
                             <form method="post" class="contact-validation-active"  enctype="multipart/form-data">
                                 <div>
-                                    <input value="<?= $row['name']?>" type="text" class="form-control" name="name"
+                                    <input  type="text" class="form-control" name="name"
                                         placeholder="Your Name*">
                                 </div>
                                 <div>
-                                    <input value="<?= $row['email']?>" type="email" class="form-control" name="email"
+                                    <input  type="email" class="form-control" name="email"
                                         placeholder="Your Email*">
                                 </div>
                                 <div>
-                                    <input value="<?= $row['adress']?>" type="text" class="form-control" name="adress"
+                                    <input  type="text" class="form-control" name="adress"
                                         placeholder="Adress">
                                 </div>
                                 <div>
-                                    <select value="<?= $row['service']?>"  name="service" class="form-control">
+                                    <select   name="service" class="form-control">
                                         <option disabled="disabled" selected="">Services</option>
                                         <option>Mechanical Engineering</option>
                                         <option>Petroleum Refinery</option>
@@ -160,11 +160,11 @@ if (isset($_POST['submit'])) {
                                     </select>
                                 </div>
                                 <div class="fullwidth">
-                                    <textarea value="<?= $row['message']?>" class="form-control" name="note" id="note"
+                                    <textarea class="form-control" name="message" id="note"
                                         placeholder="Message..."></textarea>
                                 </div>
                                 <div class="submit-area">
-                                    <button value="<?= $row['submit']?>" type="submit" name="submit" class="theme-btn">Get in Touch</button>
+                                    <button  type="submit" name="submit" class="theme-btn">Get in Touch</button>
                                     <div id="loader">
                                         <i class="ti-reload"></i>
                                     </div>
