@@ -139,7 +139,7 @@ while ($row = mysqli_fetch_assoc($cartResult)) {
                               <?php endif ?>
                             </td>
                             <td class="images">
-                              <img src="<?= htmlspecialchars($item['product_image']); ?>" onerror="this.src = '/user/assets/no-img.jpg';" width="50" style="object-fit: contain;">
+                              <img src="<?= USER_IMAGES_PATH . '/' . htmlspecialchars($item['product_image']); ?>" onerror="this.src = '/user/assets/no-img.jpg';" width="50" style="object-fit: contain;">
                             </td>
                             <td class="product">
                               <ul>

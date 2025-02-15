@@ -6,7 +6,7 @@ $password = "";
 
 // Data Source Name
 $dsn = "mysql:host=$hostname;dbname=$dbname";
-
+define('USER_IMAGES_PATH', '/admin/assets/images');
 // try{
 //     $dsn = "mysql:host=$hostname;dbname=$dbname;";
 //     $conn = new PDO($dsn,$username,$password);
@@ -33,4 +33,11 @@ if(!$conn)
 {
     die("Connection failed: " . mysqli_connect_error());
 }
+
+
+$settings_sql = "SELECT * FROM settings";
+$settings_result = $conn->query($settings_sql);
+
+$SETTINGS = $settings_result->fetch_assoc();
+
 ?>

@@ -21,8 +21,9 @@ include_once 'user.php';
                     </div>
                     <div class="col-lg-2 col-md-6 col-6">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="index.php"><img src="../assets/images/logo.svg"
-                                    alt="logo"></a>
+                            <a class="navbar-brand" href="/user/pages/index.php">
+                                <img src="<?= USER_IMAGES_PATH . '/' . $SETTINGS['main_logo'] ?>" alt="logo">
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-1 col-1">

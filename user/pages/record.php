@@ -31,7 +31,7 @@ $result = mysqli_query($conn ,$query)
       <td><?= $row['adress']?></td>
       <td><?= $row['service']?></td>
       <td><?= $row['message']?></td>
-      <td><?= $row['image']?></td>
+      <td><?= USER_IMAGES_PATH . '/' . $row['image']?></td>
       <td>
         <a href="edit.php" class="btn btn-primary">Edit</a> | <a
          href="delete.php?id=<?php echo $row['id']?>" class="btn btn-danger">delete</a>

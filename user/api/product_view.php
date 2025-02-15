@@ -31,7 +31,7 @@ if ($product): ?>
                 <div class="product-single-img">
                     <div class="modal-product">
                         <div class="item">                               
-                            <img src="<?= $product['image'] ?? '' ?>" 
+                            <img src="<?= USER_IMAGES_PATH . '/' . $product['image'] ?? '' ?>" 
                                 alt="<?= htmlspecialchars($product['name']) ?>" 
                                 onerror="this.src = '/user/assets/no-img.jpg';" 
                                 style="object-fit: contain;" />

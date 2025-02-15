@@ -115,12 +115,18 @@ while ($row = mysqli_fetch_assoc($result_best_selling)) {
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/png" href="https://wpocean.com/html/tf/pengu/assets/images/favicon.png">
   <title>Draftsy</title>
 
   <?php
   include('../include/styles.php');
   ?>
+  <style>
+    .bg-shape {
+      display: none !important;
+    }
+
+
+  </style>
 
 </head>
 
@@ -153,9 +159,9 @@ while ($row = mysqli_fetch_assoc($result_best_selling)) {
         <div class="slide">
           <div class="container">
             <div class="row">
-              <div class="col col-lg-7 col-md-8 col-sm-12 slide-caption">
+              <div class="col col-lg-7 col-md-8 col-sm-12 slide-caption"  style="background: white; padding: 40px; border-radius: 20px;">
                 <div class="slide-title">
-                  <h2>Sneakers For Men</h2>
+                  <h2>High-Quality Stationary</h2>
                 </div>
                 <div class="slide-subtitle">
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Libero, vel, facilisis
@@ -166,10 +172,10 @@ while ($row = mysqli_fetch_assoc($result_best_selling)) {
                   <div class="filter-item">
                     <div class="shop-filter-item price">
                       <h3>Price :</h3>
-                      <span>$50.60</span>
+                      <span><small>From</small> $20</span>
                     </div>
                   </div>
-                  <div class="filter-item">
+                  <!-- <div class="filter-item">
                     <div class="shop-filter-item color">
                       <h3>Color :</h3>
                       <div class="color-name">
@@ -213,21 +219,21 @@ while ($row = mysqli_fetch_assoc($result_best_selling)) {
 
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="hero-btn">
-                  <a href="shop.html" class="theme-btn s1">40% Off</a>
-                  <a href="shop.html" class="theme-btn">Shop Now</a>
+                  <a href="/user/pages/shop.php" class="theme-btn s1">40% Off</a>
+                  <a href="/user/pages/shop.php" class="theme-btn">Shop Now</a>
                 </div>
-                <div class="slider-pic">
-                  <img src="https://wpocean.com/html/tf/pengu/assets/images/slider/8.png" alt>
+                <div class="slider-pic" style=" justify-content: center; align-items: center; left: 450px; top: 500px; box-shadow: 3px 20px 20px 20px #0000001a; height: auto; border-radius: 100px; top: 50%;">
+                <img src="https://images.unsplash.com/photo-1494319827402-c4b839aed26b?q=80&amp;w=1738&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" style="width: 1000px; object-fit: cover;">
                 </div>
                 <div class="bg-shape"></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="slide">
+        <!-- <div class="slide">
           <div class="container">
             <div class="row">
               <div class="col col-lg-7 col-md-8 col-sm-12 slide-caption">
@@ -302,7 +308,7 @@ while ($row = mysqli_fetch_assoc($result_best_selling)) {
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
     <!-- end of wpo-hero-section-1 -->
@@ -909,24 +915,24 @@ while ($row = mysqli_fetch_assoc($result_best_selling)) {
           <div class="col-lg-6 col-12">
             <div class="lookbook-benner">
               <div class="bg-image">
-                <img src="https://wpocean.com/html/tf/pengu/assets/images/lookbook.jpg" alt="">
+                <img src="/user/assets/img/pens.jpg" alt="">
               </div>
-              <div class="content">
-                <h2>LOOKBOOK 2023</h2>
-                <p>Best fasionable brand in the world</p>
-                <a class="theme-btn" href="shop.html">View Collection</a>
+              <div class="content" style="padding: 20px 20px;background: #00000026;">
+                <h2>High-Quality Stationary</h2>
+                <p>Best quality stationary supplies</p>
+                <a class="theme-btn" href="/user/pages/shop.php">View Collection</a>
               </div>
             </div>
           </div>
           <div class="col-lg-6 col-12">
             <div class="winter-benner">
               <div class="bg-image">
-                <img src="https://wpocean.com/html/tf/pengu/assets/images/winter.jpg" alt="">
+                <img src="/user/assets/img/art-supply.jpg">
               </div>
               <div class="content">
-                <span>Winter Sale</span>
-                <h2>UP TO 70% OFF</h2>
-                <a class="theme-btn" href="shop.html">Shop Now</a>
+                <span>Art Supply</span>
+                <h2>Big Discounts</h2>
+                <a class="theme-btn" href="/user/pages/shop.php">Shop Now</a>
               </div>
             </div>
           </div>

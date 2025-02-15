@@ -16,14 +16,14 @@ while ($category_row = mysqli_fetch_assoc($category_result)) {
                 <div class="col col-lg-5 col-md-6 col-sm-12 col-12">
                     <div class="widget about-widget">
                         <div class="logo widget-title">
-                            <img src="assets/images/logo.svg" alt="blog">
+                            <img src="<?= USER_IMAGES_PATH . '/' . $SETTINGS['main_logo'] ?>" alt="blog">
                         </div>
                         <p>At Draftsy, we curate high-quality notebooks, pens, planners, and desk essentials designed to elevate your everyday writing experience. Our mission is to make organization and creativity effortless by providing stationery that is both practical and beautifully crafted.</p>
                         <div class="social-widget">
                             <ul>
-                                <li><a href="https://facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="https://x.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="https://linkedin.com"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                                <li><a href="<?= $SETTINGS['fb'] ?? '#' ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="<?= $SETTINGS['x'] ?? '#' ?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="<?= $SETTINGS['linkedin'] ?? '#' ?>" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
                                 </li>
                             </ul>
                         </div>

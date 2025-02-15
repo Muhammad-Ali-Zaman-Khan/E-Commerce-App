@@ -177,7 +177,7 @@ while ($row = mysqli_fetch_assoc($relatedProductsResult)) {
                     <div class="owl-stage" style="transform: translate3d(-527px, 0px, 0px); transition: 0.5s; width: 2638px;">
                       <div class="owl-item" style="width: 527.5px;">
                           <div class="item" style="position: relative; overflow: hidden;">
-                            <img src="<?= $product['image'] ?? '' ?>" alt="<?= htmlspecialchars($product['name']) ?>" style="object-fit: contain;" onerror="this.src = '/user/assets/no-img.jpg';" />
+                            <img src="<?= USER_IMAGES_PATH . '/' . $product['image'] ?? '' ?>" alt="<?= htmlspecialchars($product['name']) ?>" style="object-fit: contain;" onerror="this.src = '/user/assets/no-img.jpg';" />
                             <img role="presentation" src="<?= $product['image'] ?? '' ?>" alt="<?= htmlspecialchars($product['name']) ?>" onerror="this.src = '/user/assets/no-img.jpg';" class="zoomImg" style="position: absolute; top: -131.787px; left: -135.629px; opacity: 0; width: 700px; height: 700px; border: medium; max-width: none; max-height: none;">
                           </div>
                         </div>
@@ -201,7 +201,7 @@ while ($row = mysqli_fetch_assoc($relatedProductsResult)) {
                       <?php foreach ($productImages as $image) : ?>
                         <div class="owl-item" style="width: 124.375px; margin-right: 10px;">
                           <div class="item">
-                            <img src="<?= $image ?? '' ?>" alt="<?= htmlspecialchars($product['name']) ?>" style="object-fit: contain;" onerror="this.src = '/user/assets/no-img.jpg';">
+                            <img src="<?= USER_IMAGES_PATH . '/' . $image ?? '' ?>" alt="<?= htmlspecialchars($product['name']) ?>" style="object-fit: contain;" onerror="this.src = '/user/assets/no-img.jpg';">
                           </div>
                         </div>
                       <?php endforeach; ?>

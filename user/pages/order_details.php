@@ -173,7 +173,7 @@ while ($item = mysqli_fetch_assoc($result)) {
                         <tr>
                           <td><?= htmlspecialchars($item['product_id']); ?></td>
                           <td style="padding: 0 !important;">
-                            <img src="<?= htmlspecialchars($item['product_image'] ?? ''); ?>" alt="<?= htmlspecialchars($item['product_name']); ?>" width="50" onerror="this.src = '/user/assets/no-img.jpg'">
+                            <img src="<?= USER_IMAGES_PATH . '/' . htmlspecialchars($item['product_image'] ?? ''); ?>" alt="<?= htmlspecialchars($item['product_name']); ?>" width="50" onerror="this.src = '/user/assets/no-img.jpg'">
                           </td>
                           <td><?= htmlspecialchars($item['product_name']); ?></td>
                           <td><?= htmlspecialchars($item['qty']); ?></td>
