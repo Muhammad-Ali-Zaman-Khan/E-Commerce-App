@@ -33,7 +33,7 @@ $result = mysqli_query($conn,$query);
    <table class="table bordered-table mb-0 " id="dataTable" data-page-length='10'>
       <thead>
         <tr>
-            <th scope="col">Product id</th>
+            <th scope="col">Product</th>
             <th scope="col">Reviews</th>
             <th scope="col">Customer id</th>
             <th scope="col">Status</th>

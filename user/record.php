@@ -1,7 +1,7 @@
 <?php
 include ('./config.php');
 
-$query = "Select * from contacts";
+$query = "Select * from contact";
 $result = mysqli_query($conn ,$query)
 ?>
 <table class="table table-hover">

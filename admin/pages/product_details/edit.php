@@ -90,13 +90,13 @@ if(isset($_POST['submit']))
           <div class="col-12">
             <label class="form-label">Availability</label>
             <div class="form-check">
-              <input value="Yes" class="form-check-input" type="radio" name="availability" id="flexRadioDefault1">
+              <input value="1" class="form-check-input" type="radio" name="availability" id="flexRadioDefault1" <?= $row['availability'] ? 'checked' : '' ?>>
               <label class="form-check-label" for="flexRadioDefault1">
               Yes
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" value="No" type="radio" name="availability" id="flexRadioDefault2">
+              <input class="form-check-input" value="0" type="radio" name="availability" id="flexRadioDefault2" <?= !$row['availability'] ? 'checked' : '' ?>>
               <label class="form-check-label" for="flexRadioDefault2">
               No
               </label>
@@ -104,7 +104,7 @@ if(isset($_POST['submit']))
           </div>
           <div class="col-12">
             <label class="form-label">Stock</label>
-            <input type="text" name="stock" class="form-control" placeholder="Stock">
+            <input type="text" name="stock" class="form-control" placeholder="Stock" value="<?= $row['stock'] ?>">
           </div>
           <div class="col-12">
             <button type="submit" name="submit" class="btn btn-primary-600">Submit</button>

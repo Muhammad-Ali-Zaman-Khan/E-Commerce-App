@@ -5,6 +5,7 @@ $query = "SELECT * from categories";
 
 $categories = mysqli_query($conn,$query);
 
+
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $query = 'Select * from products where id ='.$id;
@@ -12,8 +13,8 @@ if(isset($_GET['id'])){
     if($result->num_rows >0){
       $row = $result->fetch_assoc();
     }
-   
-}
+    
+  }
 
 if(isset($_POST['submit']))
 {
@@ -136,11 +137,11 @@ if(isset($_POST['submit']))
           </div>
           <div class="col-12">
             <label class="form-label">Regular Price</label>
-            <input type="number" name="regular_price" class="form-control" placeholder="Regular Price" value="<?php echo $row['regular_price']?> ">
+            <input type="number" name="regular_price" class="form-control" placeholder="Regular Price" value="<?php echo $row['regular_price']?>">
           </div>
           <div class="col-12">
             <label class="form-label">Discounted Price</label>
-            <input type="number" name="discounted_price" class="form-control" placeholder="Discounted Price" value="<?php echo $row['discounted_price']?> ">
+            <input type="number" name="discounted_price" class="form-control" placeholder="Discounted Price" value="<?php echo $row['discounted_price']?>">
           </div>
           <div class="col-12">
             <button type="submit" name="submit" class="btn btn-primary-600">Submit</button>

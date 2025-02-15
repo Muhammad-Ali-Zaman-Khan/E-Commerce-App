@@ -1,5 +1,6 @@
 <?php
-define('ADMIN_ASSET_URL','http://localhost/projectphp/admin/assets/');
+define('ADMIN_ASSET_URL','/admin/assets/');
+define('ADMIN_BASE_URL', '/admin');
 
 $hostname = "localhost";
 $dbname = "stationary";

@@ -49,7 +49,7 @@ $result = mysqli_query($conn,$query);
           ?>
             <tr>
                 <td><?php echo $row['p_name']?></td>
-                <td><?php echo $row['availability']?></td>
+                <td><?= $row['availability'] == '1' ? 'Yes' : 'No' ?></td>
                 <td><?php echo $row['stock']?></td>
                 <td>
                 <a href="edit.php?id=<?php echo $row['id']?>" class="w-32-px h-32-px bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center">
