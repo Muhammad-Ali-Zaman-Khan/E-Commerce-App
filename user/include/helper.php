@@ -10,7 +10,7 @@ function renderProduct($product, $user, $cls=null) {
     <div class="<?= $cls ?>">
         <div class="product-single-item">
             <div class="image">
-                <img src="<?= USER_IMAGES_PATH . '/' . $product['image'] ?? '' ?>" alt="<?= htmlspecialchars($product['name']) ?>"  onerror="this.src = '/user/assets/no-img.jpg';" style="min-height: 345px; object-fit: contain;"/>
+                <img src="<?= USER_IMAGES_PATH . '/' . $product['image'] ?? '' ?>" alt="<?= htmlspecialchars($product['name']) ?>"  onerror="this.src = '/user/assets/no-img.jpg';" style="height: 345px; object-fit: contain;"/>
                 <ul class="cart-wrap">
                     <li>
                         <a data-bs-toggle="tooltip" data-bs-html="true" 

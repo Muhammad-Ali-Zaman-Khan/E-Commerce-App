@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2025 at 06:47 PM
+-- Generation Time: Feb 16, 2025 at 03:44 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,14 +36,6 @@ CREATE TABLE `cart` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `customer_id`, `product_id`, `amount`, `created_at`, `updated_at`) VALUES
-(1, 3, 4, 1, '2025-02-14 14:57:57', '2025-02-14 14:57:57'),
-(2, 3, 5, 1, '2025-02-14 14:58:00', '2025-02-14 14:58:00');
-
 -- --------------------------------------------------------
 
 --
@@ -64,9 +56,13 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `image`, `description`, `created_at`, `updated_at`) VALUES
-(10, 'Arts Books', 'pic 1.PNG', 'ghghj', '2025-02-07 13:56:58', '2025-02-07 13:56:58'),
-(11, 'Harry Potter Book', 'pic 2.PNG', 'harry potter', '2025-02-08 13:40:08', '2025-02-08 13:40:08'),
-(12, 'ali', 'pic 2.PNG', 'image', '2025-02-12 13:30:59', '2025-02-12 13:30:59');
+(13, 'Arts & Craft', 'art-supplies-and-painting_4460x4460.webp', 'A variety of creative supplies including paints, brushes, canvases, and DIY kits for artists of all levels', '2025-02-16 14:13:52', '2025-02-16 14:15:08'),
+(14, 'Books', '0009009316-M.jpg', 'A diverse collection of fiction, non-fiction, academic, and self-help books to inspire and educate.', '2025-02-16 14:15:49', '2025-02-16 14:15:49'),
+(15, 'Bracelets', 'anchor-bracelet-mens.webp', 'Stylish and trendy bracelets in different designs, from casual to elegant, perfect for any occasion.', '2025-02-16 14:16:19', '2025-02-16 14:16:19'),
+(16, 'HandBags', 'leather-handbag-on-bed.webp', 'A selection of fashionable handbags, from everyday totes to elegant purses, to complement your style.', '2025-02-16 14:16:46', '2025-02-16 14:16:46'),
+(17, 'Makeup', 'arts-and-crafts-pens-and-paints_4460x4460.webp', 'A wide range of beauty products, including foundations, lipsticks, eyeshadows, and more for a flawless look.', '2025-02-16 14:17:14', '2025-02-16 14:17:14'),
+(18, 'Wallets', '461f86b9176ce5c05cb81c84a429988b.jpg_720x720q80.jpg_.webp', 'Durable and stylish wallets to keep your essentials organized, available in various sizes and materials.', '2025-02-16 14:17:40', '2025-02-16 14:17:40'),
+(19, 'Stationary', 'dc5137ba54cb536a6646b5a198aa5a5f.jpg_720x720q80.jpg_.webp', 'Essential office and school supplies, including notebooks, pens, planners, and sticky notes.', '2025-02-16 14:17:53', '2025-02-16 14:17:53');
 
 -- --------------------------------------------------------
 
@@ -129,7 +125,6 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `email`, `phone`, `city`, `state`, `address`, `zipcode`, `password`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'John Doe', 'john.doe@example.com', '1234567890', 'New York', 'NY', '1234 Elm St, Apt 56', '10001', 'hashed_password1', 'active', '2025-01-22 12:57:35', '2025-01-22 12:57:35'),
 (2, 'Jane Smith', 'jane.smith@example.com', '0987654321', 'Los Angeles', 'CA', '5678 Oak St', '90001', 'hashed_password2', 'active', '2025-01-22 12:57:35', '2025-01-22 12:57:35'),
 (3, 'test', 'test@gmail.com', '03303944082', 'Karachi', 'Pakistan', 'P.E.C.H.S block 2', '74800', '$2y$10$WUyRu3iRMRM1pWSo2amtZ.x7sv5swvbMB7Df0waoXGD9W7uS3NAu2', 'active', '2025-02-14 14:57:24', '2025-02-14 15:00:26');
 
@@ -144,15 +139,6 @@ CREATE TABLE `newsletter` (
   `email` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `newsletter`
---
-
-INSERT INTO `newsletter` (`id`, `email`, `created_at`) VALUES
-(1, 'test@gmail.com', '2025-02-05 12:25:00'),
-(2, 'te2st@gmail.com', '2025-02-05 12:29:18'),
-(3, 'test2323@gmail.com', '2025-02-05 14:09:55');
 
 -- --------------------------------------------------------
 
@@ -171,15 +157,6 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `order_num`, `customer_id`, `status`, `total_amount`, `sub_total`, `created_at`, `updated_at`) VALUES
-(1, 'ORD123456', 1, 'pending', 499.99, 499.99, '2025-01-22 12:57:36', '2025-01-22 12:57:36'),
-(2, 'ORD654321', 2, 'shipped', 134.98, 134.98, '2025-01-22 12:57:36', '2025-01-22 12:57:36'),
-(3, 'ORD811010', 3, 'pending', 129.15, 200.00, '2025-02-14 15:00:27', '2025-02-14 15:00:27');
-
 -- --------------------------------------------------------
 
 --
@@ -195,15 +172,6 @@ CREATE TABLE `order_details` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `qty`, `amount`, `created_at`, `updated_at`) VALUES
-(3, 3, 6, 18, 54.00, '2025-02-14 15:00:27', '2025-02-14 15:00:27'),
-(4, 3, 4, 1, 15.00, '2025-02-14 15:00:28', '2025-02-14 15:00:28'),
-(5, 3, 6, 18, 54.00, '2025-02-14 15:00:28', '2025-02-14 15:00:28');
 
 -- --------------------------------------------------------
 
@@ -229,14 +197,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `cat_id`, `name`, `description`, `image`, `sku`, `regular_price`, `discounted_price`, `created_at`, `updated_at`) VALUES
-(4, 10, 'stationary', 'stationary', 'pic 2.PNG', '  hduwd', 20.00, 15.00, '2025-02-06 14:18:24', '2025-02-14 14:58:57'),
-(5, 10, 'Arts Books', 'jsgdhsfd', 'pic 1.PNG', 'jytyfr', 45576.00, 7565.00, '2025-02-06 14:52:20', '2025-02-14 14:56:22'),
-(6, 10, 'ali    ', 'hello ali', '', 'ejhdehfd    ', 5.00, 3.00, '2025-02-07 13:28:50', '2025-02-14 14:59:18'),
-(8, 10, 'cart', 'carts', 'pic 1.PNG', 'hellloo', 20.00, 16.00, '2025-02-07 13:39:05', '2025-02-14 14:56:06'),
-(10, 10, 'ali zaman  ', 'art books', '', 'art books  ', 25.00, 7.00, '2025-02-08 14:08:06', '2025-02-14 14:59:26'),
-(11, 11, 'ali', '', 'pic 2.PNG', '', 10.00, 4.00, '2025-02-08 14:14:39', '2025-02-14 14:59:22'),
-(12, 10, 'Arts Books', 'fdfdef', 'pic 2.PNG', 'fefefefe', 98.00, 20.00, '2025-02-08 14:15:32', '2025-02-08 14:15:32'),
-(13, 11, 'Munned ur rehman', 'muneeb ur rehman', 'pic 1.PNG', 'hello', 200.00, 100.00, '2025-02-08 14:19:07', '2025-02-08 14:19:07');
+(1, 14, 'The Art of Being Alone', '...', '8dec15b245b4acd7bd9be0cd7743ef4a.png_200x200q80.png_.webp', 'A2323', 40.00, 34.00, '2025-02-16 14:26:44', '2025-02-16 14:26:44'),
+(2, 14, 'Atomic Habits', 'Award Winning Book!', '92494d705b3154b13240b32f0df0e0e2.jpg_200x200q80.jpg_.webp', 'A232134', 50.00, 35.00, '2025-02-16 14:34:10', '2025-02-16 14:34:10'),
+(3, 14, 'The Time Maschine', 'Book by HG.Wells', '0009009316-M.webp', 'A123fa', 24.00, 20.00, '2025-02-16 14:35:15', '2025-02-16 14:35:15'),
+(4, 14, 'Never Lie', 'By Frieda Mccfadden', 'a01f5108d961b2d8575f3001c3676f8b.jpg_200x200q80.jpg_.webp', 'AA323', 39.00, 25.00, '2025-02-16 14:36:09', '2025-02-16 14:36:09'),
+(5, 14, 'The Art of Thinking Clearly', 'By, Robert Gialdini', 'B_163.webp', 'A2easd', 15.00, 9.00, '2025-02-16 14:37:15', '2025-02-16 14:37:15'),
+(6, 14, 'The Art of not Overthinking', 'By Shaurya Kapoor', 'B_1830.webp', 'Adsafasfr2', 45.00, 30.00, '2025-02-16 14:38:31', '2025-02-16 14:38:31'),
+(7, 13, 'Pain brush set x25', '...', 'paint-bruches-in-bucket_4460x4460 (1).webp', 'AS231', 15.00, 8.00, '2025-02-16 14:39:16', '2025-02-16 14:39:16'),
+(8, 13, 'x6 Brush set', '6 Brush set', 'wood-handle-paint-brush-set_925x.webp', 'A231', 9.00, 7.00, '2025-02-16 14:40:02', '2025-02-16 14:40:02'),
+(9, 13, 'x24 Colors set', 'lorem ispum dolor sit amet', 'sharpened-pencil-crayons_4460x4460.webp', 'asd23', 12.00, 7.00, '2025-02-16 14:40:46', '2025-02-16 14:40:46');
 
 -- --------------------------------------------------------
 
@@ -247,7 +216,7 @@ INSERT INTO `products` (`id`, `cat_id`, `name`, `description`, `image`, `sku`, `
 CREATE TABLE `product_details` (
   `id` int(11) NOT NULL,
   `prod_id` int(11) DEFAULT NULL,
-  `availability` varchar(10) DEFAULT NULL,
+  `availability` tinyint(1) DEFAULT NULL,
   `stock` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -256,11 +225,15 @@ CREATE TABLE `product_details` (
 --
 
 INSERT INTO `product_details` (`id`, `prod_id`, `availability`, `stock`) VALUES
-(7, 12, '0', 40),
-(8, 6, 'Yes', 4),
-(9, 4, '0', 55),
-(10, 6, '0', -6),
-(11, 10, 'Yes', 56);
+(1, 1, 1, 50),
+(2, 2, 1, 24),
+(3, 3, 1, 5),
+(4, 4, 1, 8),
+(5, 5, 1, 80),
+(6, 6, 1, 12),
+(7, 7, 1, 10),
+(8, 8, 1, 10),
+(9, 9, 1, 20);
 
 -- --------------------------------------------------------
 
@@ -275,15 +248,6 @@ CREATE TABLE `product_images` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `product_images`
---
-
-INSERT INTO `product_images` (`id`, `prod_id`, `images`, `created_at`, `updated_at`) VALUES
-(1, 4, 'vid1.mp4', '2025-02-08 14:32:50', '2025-02-08 14:57:19'),
-(2, 4, 'pic 2.PNG', '2025-02-08 14:33:03', '2025-02-08 14:33:03'),
-(3, 4, 'pic 2.PNG', '2025-02-13 13:55:32', '2025-02-13 13:55:32');
 
 -- --------------------------------------------------------
 
@@ -301,13 +265,6 @@ CREATE TABLE `product_reviews` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `product_reviews`
---
-
-INSERT INTO `product_reviews` (`id`, `prod_id`, `review`, `customer_id`, `status`, `rating`, `created_at`, `updated_at`) VALUES
-(2, 5, 'hello my 1 review', 1, 'approved', NULL, '2025-02-13 14:55:55', '2025-02-13 14:55:55');
 
 -- --------------------------------------------------------
 
@@ -337,7 +294,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `site_title`, `main_logo`, `footer_logo`, `email`, `phone`, `address`, `fb`, `insta`, `x`, `linkedin`, `about`, `created_at`, `updated_at`) VALUES
-(1, 'Draftsy', 'pic 2.PNG', NULL, 'draftsy@gmail.com', '123456789', 'A1B2C3', '', '', '', '#', 'About me', '2025-02-14 14:22:11', '2025-02-14 14:22:55');
+(1, 'Draftsy', 'logo-rmbgpng.png', NULL, 'draftsy@gmail.com', '123456789', 'A1B2C3', '', '', '', '#', 'About me', '2025-02-14 14:22:11', '2025-02-15 10:11:41');
 
 -- --------------------------------------------------------
 
@@ -468,13 +425,13 @@ ALTER TABLE `shipping_details`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -492,43 +449,43 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `newsletter`
 --
 ALTER TABLE `newsletter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product_details`
 --
 ALTER TABLE `product_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product_reviews`
 --
 ALTER TABLE `product_reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -550,8 +507,8 @@ ALTER TABLE `shipping_details`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
-  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `orders`
@@ -595,9 +552,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
--- Set all availability values to 1 to avoid errors
-UPDATE product_details SET availability = 1;
-
--- Alter the column type from STRING to BOOLEAN (TINYINT)
-ALTER TABLE product_details MODIFY availability TINYINT(1);
