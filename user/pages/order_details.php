@@ -17,7 +17,7 @@ $order_id = intval($_GET['order_id']); // Get order_id from URL
 
 // Get order details (order_id, order_num, status, order_date, total_items, sub_total)
 $orderQuery = "SELECT id, order_num, status, created_at, sub_total,
-              DATE_FORMAT(created_at, '%d : %m : %Y') AS order_date
+              DATE_FORMAT(created_at, '%d / %m / %Y') AS order_date
               FROM orders 
               WHERE id = ? AND customer_id = ?";
 $orderStmt = mysqli_prepare($conn, $orderQuery);

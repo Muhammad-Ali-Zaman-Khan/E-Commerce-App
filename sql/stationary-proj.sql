@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2025 at 03:44 PM
+-- Generation Time: Feb 17, 2025 at 09:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,6 +35,18 @@ CREATE TABLE `cart` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `customer_id`, `product_id`, `amount`, `created_at`, `updated_at`) VALUES
+(10, 3, 1, 1, '2025-02-17 06:14:10', '2025-02-17 06:14:10'),
+(11, 3, 2, 1, '2025-02-17 06:14:14', '2025-02-17 06:14:14'),
+(12, 3, 3, 1, '2025-02-17 06:14:17', '2025-02-17 06:14:17'),
+(13, 3, 8, 1, '2025-02-17 07:08:24', '2025-02-17 07:08:24'),
+(14, 3, 5, 1, '2025-02-17 07:09:41', '2025-02-17 07:09:41'),
+(15, 3, 7, 1, '2025-02-17 07:09:46', '2025-02-17 07:09:46');
 
 -- --------------------------------------------------------
 
@@ -97,7 +109,8 @@ INSERT INTO `contact` (`id`, `name`, `email`, `adress`, `service`, `message`, `i
 (10, 'ali', 'az030366@gmail.com', 'abc', 'Mechanical Engineering', 'hello world', NULL),
 (11, 'ali', 'az030366@gmail.com', 'abc', 'Mechanical Engineering', 'hello world', NULL),
 (12, 'ali zaman', 'az030366@gmail.com', 'pechs block 2', 'Mechanical Engineering', 'hello world 1', NULL),
-(13, 'Test', 'test@gmail.com', 'P.E.C.H.S block 2', NULL, '12131243214', NULL);
+(13, 'Test', 'test@gmail.com', 'P.E.C.H.S block 2', NULL, '12131243214', NULL),
+(14, 'Test User', 'test@gmail.com', 'Aptech SFC', NULL, 'Hello, world!', NULL);
 
 -- --------------------------------------------------------
 
@@ -140,6 +153,13 @@ CREATE TABLE `newsletter` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `newsletter`
+--
+
+INSERT INTO `newsletter` (`id`, `email`, `created_at`) VALUES
+(1, 'abcd@gmail.com', '2025-02-17 06:00:54');
+
 -- --------------------------------------------------------
 
 --
@@ -157,6 +177,14 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_num`, `customer_id`, `status`, `total_amount`, `sub_total`, `created_at`, `updated_at`) VALUES
+(1, 'ORD768404', 3, 'delivered', 135.45, 162.00, '2025-02-17 06:14:54', '2025-02-17 08:02:32'),
+(2, 'ORD654805', 3, 'delivered', 40.95, 63.00, '2025-02-17 07:11:01', '2025-02-17 07:11:27');
+
 -- --------------------------------------------------------
 
 --
@@ -172,6 +200,18 @@ CREATE TABLE `order_details` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `qty`, `amount`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 1, 34.00, '2025-02-17 06:14:54', '2025-02-17 06:14:54'),
+(2, 1, 2, 1, 35.00, '2025-02-17 06:14:54', '2025-02-17 06:14:54'),
+(3, 1, 3, 3, 60.00, '2025-02-17 06:14:54', '2025-02-17 06:14:54'),
+(4, 2, 5, 1, 9.00, '2025-02-17 07:11:01', '2025-02-17 07:11:01'),
+(5, 2, 7, 2, 16.00, '2025-02-17 07:11:01', '2025-02-17 07:11:01'),
+(6, 2, 8, 2, 14.00, '2025-02-17 07:11:01', '2025-02-17 07:11:01');
 
 -- --------------------------------------------------------
 
@@ -225,14 +265,14 @@ CREATE TABLE `product_details` (
 --
 
 INSERT INTO `product_details` (`id`, `prod_id`, `availability`, `stock`) VALUES
-(1, 1, 1, 50),
-(2, 2, 1, 24),
-(3, 3, 1, 5),
+(1, 1, 1, 49),
+(2, 2, 1, 23),
+(3, 3, 1, 2),
 (4, 4, 1, 8),
-(5, 5, 1, 80),
+(5, 5, 1, 79),
 (6, 6, 1, 12),
-(7, 7, 1, 10),
-(8, 8, 1, 10),
+(7, 7, 1, 8),
+(8, 8, 1, 8),
 (9, 9, 1, 20);
 
 -- --------------------------------------------------------
@@ -265,6 +305,15 @@ CREATE TABLE `product_reviews` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product_reviews`
+--
+
+INSERT INTO `product_reviews` (`id`, `prod_id`, `review`, `customer_id`, `status`, `rating`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Really good book, good quality paper, Highly recommend', 3, 'approved', 5, '2025-02-17 07:45:10', '2025-02-17 07:45:10'),
+(2, 7, 'Good quality, with a wide variety of brushes. I like it', 3, 'approved', 4, '2025-02-17 08:06:03', '2025-02-17 08:06:03'),
+(3, 8, 'Good product for reasonable price', 3, 'approved', 5, '2025-02-17 08:08:10', '2025-02-17 08:08:10');
 
 -- --------------------------------------------------------
 
@@ -425,7 +474,7 @@ ALTER TABLE `shipping_details`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -437,7 +486,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -449,19 +498,19 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `newsletter`
 --
 ALTER TABLE `newsletter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -485,7 +534,7 @@ ALTER TABLE `product_images`
 -- AUTO_INCREMENT for table `product_reviews`
 --
 ALTER TABLE `product_reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `settings`

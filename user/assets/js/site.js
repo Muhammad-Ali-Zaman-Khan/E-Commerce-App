@@ -38,7 +38,7 @@ function addToCart(productId, customerId = null, amount = 1) {
         if (data.status === 'success') {
             Swal.fire({
                 title: 'Success!',
-                html: `Item(s) Added to Cart<br>Total Items: <b>${data.cart_count}</b>`,
+                html: `Item(s) Added to Cart <br> Total Items: ${data.cart_count} </br>`,
                 icon: 'success',
                 confirmButtonText: 'Great!',
                 showCancelButton: true,

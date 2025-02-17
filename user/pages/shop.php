@@ -18,9 +18,8 @@
                   -- pd.stock,
                   AVG(pr.rating) AS avg_rating
             FROM products p
-            -- LEFT JOIN product_details pd ON p.id = pd.prod_id
             LEFT JOIN product_reviews pr ON p.id = pr.prod_id
-            -- WHERE pd.stock >= 1
+            WHERE 1=1
             ";
 
   // Initialize an array for bound parameters

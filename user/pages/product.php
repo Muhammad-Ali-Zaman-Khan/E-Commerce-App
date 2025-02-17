@@ -2,6 +2,11 @@
 include_once '../include/user.php';
 include '../include/helper.php';
 
+if (!$user_logged_in) {
+  header("Location: /user/pages/login.php?ref=/user/pages/shop.php");
+  die();
+}
+
 if (!isset($_GET['product_id'])) {
   echo "Product ID is required.";
   exit;
@@ -85,6 +90,41 @@ $relatedProductsResult = mysqli_stmt_get_result($relatedProductsStmt);
 $relatedProducts = [];
 while ($row = mysqli_fetch_assoc($relatedProductsResult)) {
   $relatedProducts[] = $row;
+}
+
+$customer_id = $user['id'];
+
+// Query to check if the user has already reviewed the product
+$checkReviewQuery = "SELECT id FROM product_reviews WHERE prod_id = ? AND customer_id = ?";
+$checkReviewStmt = mysqli_prepare($conn, $checkReviewQuery);
+mysqli_stmt_bind_param($checkReviewStmt, "ii", $product_id, $user['id']);
+mysqli_stmt_execute($checkReviewStmt);
+$checkReviewResult = mysqli_stmt_get_result($checkReviewStmt);
+
+// Query to check if the user has ordered this product
+$checkPurchaseQuery = "SELECT od.id FROM order_details od 
+  JOIN orders o ON od.order_id = o.id
+  WHERE o.customer_id = ? AND od.product_id = ? AND o.status = 'delivered'
+";
+$checkPurchaseStmt = mysqli_prepare($conn, $checkPurchaseQuery);
+mysqli_stmt_bind_param($checkPurchaseStmt, "ii", $customer_id, $product_id);
+mysqli_stmt_execute($checkPurchaseStmt);
+$checkPurchaseResult = mysqli_stmt_get_result($checkPurchaseStmt);
+
+
+// if the user has purchased the product and not reviewed it yet
+if (mysqli_num_rows($checkPurchaseResult) > 0) {
+  // The user has purchased the product
+  if (mysqli_num_rows($checkReviewResult) > 0) {
+      // If the user has already reviewed the product, hide the form
+      $productReviewedByUser = true;
+  } else {
+      // The user has not reviewed the product, show the form
+      $productReviewedByUser = false;
+  }
+} else {
+  // The user has not purchased the product, hide the form
+  $productReviewedByUser = true; // set this to true to hide the form and inform the user
 }
 
 ?>
@@ -471,18 +511,19 @@ while ($row = mysqli_fetch_assoc($relatedProductsResult)) {
                     </div>
                     <div class="col-lg-12 col-12">
                       <div class="rating-bottom">
+                        
                         <!-- <div class="write-review-btn">
                           <button class="theme-btn">Write A Review</button>
-                        </div>
+                        </div> -->
 
-                        <div class="rating-give-section-items">
-                          <div class="review-btn-btn">
+                        <div class="rating-give-section-items d-block">
+                          <!-- <div class="review-btn-btn">
                             <button class="theme-btn s2">Cancel Review</button>
-                          </div>
-
+                          </div> -->
+                          <?php if (!$productReviewedByUser) { ?>
                           <div class="rating-give-section">
                             <div class="rating-give-section-wrap">
-                              <form>
+                              <form action="/user/pages/submit_review.php" method="post">
                                 <span>Give A Review</span>
                                 <div class="give-rating">
                                   <label>
@@ -516,23 +557,21 @@ while ($row = mysqli_fetch_assoc($relatedProductsResult)) {
                                     <span class="icon">★</span>
                                   </label>
                                 </div>
+                                
+                                <div class="form-group">
+                                  <input type="hidden" name="customer_id" value="<?= $user['id'] ?>">
+                                  <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+                                  <textarea name="review" id="rv" cols="30" rows="10" placeholder="Your Review..." required></textarea>
+                                </div>
 
                                 <div class="form-group">
-                                  <input type="text" placeholder="Your Name...">
-                                </div>
-                                <div class="form-group">
-                                  <input type="text" placeholder="Your Email...">
-                                </div>
-                                <div class="form-group">
-                                  <textarea name="rv" id="rv" cols="30" rows="10" placeholder="Your Review..."></textarea>
-                                </div>
-                                <div class="form-group">
-                                  <button type="button" class="theme-btn">Submit Review</button>
+                                  <button type="submit" class="theme-btn">Submit Review</button>
                                 </div>
                               </form>
                             </div>
                           </div>
-                        </div> -->
+                          <?php } ?>
+                        </div>
 
                         <div class="review-rating-wrap">
                           <?php foreach ($productReviews as $review) { ?>
@@ -580,7 +619,7 @@ while ($row = mysqli_fetch_assoc($relatedProductsResult)) {
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade" id="Information" role="tabpanel" aria-labelledby="Information-tab">
+            <!-- <div class="tab-pane fade" id="Information" role="tabpanel" aria-labelledby="Information-tab">
               <div class="container">
                 <div class="Additional-wrap">
                   <div class="row">
@@ -622,7 +661,7 @@ while ($row = mysqli_fetch_assoc($relatedProductsResult)) {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

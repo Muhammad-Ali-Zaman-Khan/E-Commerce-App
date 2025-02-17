@@ -49,6 +49,7 @@ order_details
     product_id
     qty
     amount
+    reviewed
     created_at
     updated_at
 

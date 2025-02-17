@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: application/json');
+
 include('../include/user.php');
 
 // Get data from the request (POST)
