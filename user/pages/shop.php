@@ -151,6 +151,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Shop - Draftsy</title>
     <?php
       include('../include/styles.php');
     ?>

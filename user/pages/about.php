@@ -7,6 +7,7 @@
     
 
 <head>
+    <title>About Us - Draftsy</title>
 <?php
     include('../include/styles.php');
     ?>
@@ -49,7 +50,7 @@
                         <div class="wpo-breadcumb-wrap">
                             <h2>about us</h2>
                             <ol class="wpo-breadcumb-wrap">
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="/user/pages/index.php">Home</a></li>
                                 <li>about</li>
                             </ol>
                         </div>

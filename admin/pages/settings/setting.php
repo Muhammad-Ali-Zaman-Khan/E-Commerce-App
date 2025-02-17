@@ -59,7 +59,6 @@ if (isset($_POST['submit'])) {
         // echo "Something went wrong!";
     }
 }
-?>
 
 ?>
 <div class="dashboard-main-body">

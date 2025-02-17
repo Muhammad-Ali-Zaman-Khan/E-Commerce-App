@@ -21,10 +21,10 @@ include('styles.php');
     <iconify-icon icon="radix-icons:cross-2"></iconify-icon>
   </button>
   <div>
-    <a href="index.html" class="sidebar-logo">
-      <img src="../assets/images/logo.png" alt="site logo" class="light-logo">
-      <img src="../assets/images/logo-light.png" alt="site logo" class="dark-logo">
-      <img src="../assets/images/logo-icon.png" alt="site logo" class="logo-icon">
+    <a href="/admin/pages/dashboard.php" class="sidebar-logo">
+    <img src="/admin/assets/images/logo-rmbgpng.png" alt="site logo" class="light-logo">
+        <img src="/admin/assets/images/logo-rmbgpng.png" alt="site logo" class="dark-logo">
+      <img src="/admin/assets/images/logo-rmbgpng.png" alt="site logo" class="logo-icon">
     </a>
   </div>
   <div class="sidebar-menu-area">
@@ -51,12 +51,12 @@ include('styles.php');
         </div>
         </div>
         <div class="col-auto">
-        <div class="d-flex flex-wrap align-items-center gap-3">
+        <div class="d-flex flex-wrap align-items-center gap-1">
             <button type="button" data-theme-toggle class="w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center"></button>
             <div class="dropdown d-none d-sm-inline-block">
-            <button class="has-indicator w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown">
+            <!-- <button class="has-indicator w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown">
                 <img src="assets/images/lang-flag.png" alt="image" class="w-24 h-24 object-fit-cover rounded-circle">
-            </button>
+            </button> -->
             <div class="dropdown-menu to-top dropdown-menu-sm">
                 <div class="py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
                 <div>
@@ -148,9 +148,9 @@ include('styles.php');
             </div><!-- Language dropdown end -->
 
             <div class="dropdown">
-            <button class="has-indicator w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown">
+            <!-- <button class="has-indicator w-40-px h-40-px bg-neutral-200 rounded-circle d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown">
                 <iconify-icon icon="mage:email" class="text-primary-light text-xl"></iconify-icon>
-            </button>
+            </button> -->
             <div class="dropdown-menu to-top dropdown-menu-lg p-0">
                 <div class="m-16 py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
                 <div>
@@ -339,40 +339,6 @@ include('styles.php');
             </div>
             </div><!-- Notification dropdown end -->
 
-            <div class="dropdown">
-            <button class="d-flex justify-content-center align-items-center rounded-circle" type="button" data-bs-toggle="dropdown">
-                <img src="assets/images/user.png" alt="image" class="w-40-px h-40-px object-fit-cover rounded-circle">
-            </button>
-            <div class="dropdown-menu to-top dropdown-menu-sm">
-                <div class="py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2">
-                <div>
-                    <h6 class="text-lg text-primary-light fw-semibold mb-2">Shaidul Islam</h6>
-                    <span class="text-secondary-light fw-medium text-sm">Admin</span>
-                </div>
-                <button type="button" class="hover-text-danger">
-                    <iconify-icon icon="radix-icons:cross-1" class="icon text-xl"></iconify-icon> 
-                </button>
-                </div>
-                <ul class="to-top-list">
-                <li>
-                    <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3" href="view-profile.html"> 
-                    <iconify-icon icon="solar:user-linear" class="icon text-xl"></iconify-icon>  My Profile</a>
-                </li>
-                <li>
-                    <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3" href="email.html"> 
-                    <iconify-icon icon="tabler:message-check" class="icon text-xl"></iconify-icon>  Inbox</a>
-                </li>
-                <li>
-                    <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3" href="company.html"> 
-                    <iconify-icon icon="icon-park-outline:setting-two" class="icon text-xl"></iconify-icon>  Setting</a>
-                </li>
-                <li>
-                    <a class="dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-danger d-flex align-items-center gap-3" href="javascript:void(0)"> 
-                    <iconify-icon icon="lucide:power" class="icon text-xl"></iconify-icon>  Log Out</a>
-                </li>
-                </ul>
-            </div>
-            </div><!-- Profile dropdown end -->
         </div>
         </div>
     </div>

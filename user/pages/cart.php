@@ -40,6 +40,7 @@ while ($row = mysqli_fetch_assoc($cartResult)) {
 <html lang="en">
 
 <head>
+  <title>Cart - Draftsy</title>
   <?php
   include('../include/styles.php');
   ?>
